@@ -17,6 +17,9 @@ public:
     void finish(const std::vector<FacilitySummary>& facilities) override;
 private:
     std::filesystem::path output_directory_;
-    // TODO(C): own output streams, validate headers and write failures.
+    std::ofstream events_, students_, facilities_, summary_;
+    bool begun_{false};
+    SimTime next_tick_{0}, duration_{0};
+    // TODO(C): own output streams, validate headers and write ailures.
 };
 }  // namespace campustwin
